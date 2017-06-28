@@ -1,8 +1,8 @@
 <?php
 
-	define ('DEFAULT_DATE', '1987-10-29', true);
+	// define ('DEFAULT_DATE', '1987-10-29', true);
 
-	if (!function_exists('calc_date')) {
+	/* if (!function_exists('calc_date')) {
 		function calc_date($birth_day) {
 
 			echo '<br />log:'.$birth_day;
@@ -23,7 +23,7 @@
 			}
 			return $sum;
 		}
-	}
+	} */
 
 	$result = '';
 	$astro_signs = array(

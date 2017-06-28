@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>SVG Generator</title>
+	<style type="text/css">
+		#drawBox {
+			width: 500px;
+			height: 500px;
+			border: 1px solid black;
+			margin: auto;
+		}
+		body {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>SVG point Generator</h1>
+	Click in box to add points
+	<br />
+	<svg width="500" height="500" id="drawBox" onclick="onClickDo()"></svg>		
+	<br />
+	<br />
+	<form>
+		<input type="button" value="Generate Coordinates" onclick="generateCode()" />&nbsp;&nbsp;&nbsp;
+		<input type="button" value="Make Poligon" onclick="generatePoli()" />&nbsp;&nbsp;&nbsp;
+		<input type="button" value="Clear All" onclick="clearSVG()" />&nbsp;&nbsp;&nbsp;
+		<br /><br />
+		<input type="button" value="Round by:" onclick="roundArrayRedraw()" />
+		<input type="number" value="10" id="roundNumber" step="5" style="width: 50px;" />&nbsp;&nbsp;
+		<input type="button" value="Remove Last point" onclick="removeLast()" /> <sup>(- both redraw points)</sup> 
+		<br /><br />
+		<textarea rows="10" cols="80" disabled="disabled" id="generatedCode"></textarea>
+	</form>
+
+</body>
+<script type="text/javascript">
+	var svgPoints = [];
+	roundVar = document.getElementById("roundNumber").value;
+
+	function getMousePosition() { // Взема позицията на мишката
+		var w = window.innerWidth;
+		var x = event.clientX - ((w - 500) / 2 );
+		var y = event.clientY - 100;
+		return [x, y];
+	}
+
+	function onClickDo() { // Евент при кликване в SVG елемента
+		coords = getMousePosition();
+		svgPoints.push(coords);
+		console.log ('Point:' + svgPoints.length + ' X:' + coords[0] + ' Y:' + coords[1]);
+		drawPointSVG(coords[0] , coords[1], svgPoints.length);
+		
+	}
+
+	function drawPointSVG(x ,y ,text) { // изчертава текуща точка заедно с стрелка и надпис
+		svgDom = document.getElementById('drawBox');
+		svgDom.innerHTML += '<circle cx="' + (x+3) + '" cy="' + y + '" r="3" fill="red" />';
+		svgDom.innerHTML += '<line x1="' + (x+8) + '" y1="' + (y-5) + '" x2="' + (x+18) + '" y2="' + (y-15) + '" stroke="black" stroke-width="1" />';
+		svgDom.innerHTML += '<line x1="' + (x+8) + '" y1="' + (y-5) + '" x2="' + (x+10) + '" y2="' + (y-11) + '" stroke="black" stroke-width="1" />';
+		svgDom.innerHTML += '<line x1="' + (x+8) + '" y1="' + (y-5) + '" x2="' + (x+14) + '" y2="' + (y-7) + '" stroke="black" stroke-width="1" />';
+		svgDom.innerHTML += '<text x="' + (x+20) + '" y="' + (y-18) + '" fill="black" >' + text + '</text>';
+	}
+
+	function generateCode() { // eевент за генериране на код от текущия масив с точки
+		document.getElementById('drawBox').innerHTML = '';
+		for (var i = 0; i < svgPoints.length; i++) {
+			drawPointSVG(svgPoints[i][0] , svgPoints[i][1], i + 1);
+		}
+		generatedCodeID = document.getElementById('generatedCode');
+		var code = '';
+		for (var i = 0 ; i < svgPoints.length ; i++) {
+			code += 'Point:' + ( i + 1 ) + ' X:' + svgPoints[i][0] + ' Y:' + svgPoints[i][1] + '\n';
+		}
+		generatedCodeID.innerHTML = code;
+	}
+
+	function generatePoli() { // генерира и изчертава полигон от масива 
+		svgDom = document.getElementById('drawBox');
+		var code = '';
+		window.alert(svgPoints);
+		code += '<polygon points="' + svgPoints + '" style="fill:yellow;stroke:black;stroke-width:1;fill-rule:nonzero;" />';
+		svgDom.innerHTML = code;
+	}
+
+	function roundArrayRedraw() {
+		document.getElementById('drawBox').innerHTML = '';
+		roundVar = document.getElementById("roundNumber").value ;
+		for (var i = 0; i < svgPoints.length; i++) {
+			svgPoints[i][0] = Math.round(svgPoints[i][0] / roundVar) * roundVar;
+			svgPoints[i][1] = Math.round(svgPoints[i][1] / roundVar) * roundVar;
+			drawPointSVG(svgPoints[i][0] , svgPoints[i][1], i + 1);
+		}
+	}
+
+	function removeLast() {
+		svgPoints.pop();
+		document.getElementById('drawBox').innerHTML = '';
+		for (var i = 0; i < svgPoints.length; i++) {
+			drawPointSVG(svgPoints[i][0] , svgPoints[i][1], i + 1);
+		}
+	}
+
+	function clearSVG() { // изчиства масива, секцията за код и SVG елемента
+		svgDom = document.getElementById('drawBox');
+		generatedCodeID = document.getElementById('generatedCode');
+		svgDom.innerHTML = '';
+		generatedCodeID.innerHTML = '';
+		svgPoints = [];
+	}
+
+</script>
+</html>
