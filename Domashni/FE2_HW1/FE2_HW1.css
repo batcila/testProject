@@ -1,0 +1,43 @@
+.mainHeader {
+	border: 3px solid lightblue;
+}
+
+nav {
+	width: 50%;
+	border: 2px solid black;
+	text-align:center;
+	margin: auto;
+	padding: 10px;  /* по задание */
+}
+
+nav a {
+    text-decoration: none; /* заради странен бъг, който показва част от линка след картинката като долна черта */
+    display: inline;
+}
+
+nav a img {
+	height: 50px;
+}
+
+#main {
+	float: left;
+	border:1px solid red;
+	width: 950px;
+}
+
+.underLine {
+	text-decoration: underline;
+}
+
+aside {
+	float: right;
+}
+
+footer {
+	clear: both; /* "clear fix" за aside*/
+	border: 3px solid lightgreen;
+}
+
+footer span {
+	float: right;
+}

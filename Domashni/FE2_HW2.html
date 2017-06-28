@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="bgBG">
+<head>
+	<meta charset="UTF-8" />
+	<title>FE2 - Homework 2</title>
+	<style>
+		svg, canvas {
+			border: 1px solid black;
+		}
+		span, canvas {
+			float: right;
+			text-align: right;
+		}
+		svg {
+			float: left;
+		}
+	</style>
+</head>
+<body>
+		<svg id="svgID" width="500" height="500">
+			Your browser does not support the HTML5 svg tag.
+		</svg>
+		<canvas id="logoCanvas" width="500" height="500">
+			Your browser does not support the HTML5 canvas tag.
+		</canvas> &lt; SVG Element
+		<span>Academy number ends on 4&nbsp;<br /><br />Refresh page to generate <br />new possition for logo <br /> in Canvas element &gt;&nbsp;</span>
+		<br /><br />
+		Enter dice number:
+		<input type="number" min="0" max="9" value="4" id="diceNumb" />
+		<br /><br />
+		<input type="button" value="Draw" onclick="getNewDice()" /> <sup> &lt; Random size and possition </sup>
+		<br /><br />
+		<input type="button" value="Clear SVG Element" onclick="document.getElementById('svgID').innerHTML = ''" />
+</body>
+<script type="text/javascript">
+
+	function drawDice (x,y,num,dieSize) { // Добавя зарче в кода на SVG елемента 
+		var binDyeColor = [ // Масив с подредбата на точките на различните зарчета [0] = 0 ..... [9] = 9 
+			'000000000',
+			'000010000',
+			'100000001',
+			'100010001',
+			'101000101',
+			'101010101',
+			'111000111',
+			'111010111',
+			'111101111',
+			'111111111'
+		];
+		var svgCode = '';
+		var iterator = 0; // за да се знае коя е моментата позиция на четене от елемент в масива 
+		svgCode += '<polygon points="' + x + ',' + y + ' ' + (x + dieSize) + ',' + y + ' ' + (x + dieSize) + ',' + (y + dieSize) + ' ' + x + ',' + (y + dieSize) + '" fill="white" stroke="black" stroke-width="1" />'; 
+		for (var rol = 1; rol < 4; rol++) { // обшожда редовете
+			for (var col = 1; col < 4; col++) { //обхожда колоните
+				dotColor = (binDyeColor[num].charAt(iterator) == 0 ? 'white' : 'black'); // задава цвят спрямо 1/0 на текущата позиция на четене
+				xCoord = x + ( col * ( dieSize / 3 )) - ( dieSize / 6 );
+				yCoord = y + ( rol * ( dieSize / 3 )) - ( dieSize / 6 );
+				dotRadius = dieSize / 9 ;
+				svgCode += '<circle cx="' + xCoord + '" cy="' + yCoord + '" r="' + dotRadius + '" fill="' + dotColor + '" />' ;
+				iterator ++;
+			}
+		}
+		document.getElementById('svgID').innerHTML += svgCode;
+	}
+
+	function getRandomInt(min, max) {
+    	return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function getNewDice() {
+		numb = document.getElementById('diceNumb').value;
+		drawDice (getRandomInt(0,400),getRandomInt(0,400),numb,getRandomInt(40,100));
+	}
+
+	function drawMitsubishiLogo(x ,y) {
+		var c = document.getElementById("logoCanvas");
+		var ctx = c.getContext("2d");
+		size = 150; // Ако е зададен атрибут на функцията с големината - трудно се наглася големината и позицията на текста
+		xStep = size / 6;
+		yStep = size / 3.5;
+		ctx.beginPath();
+		ctx.moveTo(x + 3 * xStep, y);
+		ctx.lineTo(x + 4 * xStep, y + yStep);
+		ctx.lineTo(x + 2 * xStep, y + 3 * yStep);
+		ctx.lineTo(x, y + 3 * yStep);
+		ctx.lineTo(x + xStep, y + 2 * yStep);
+		ctx.lineTo(x + 5 * xStep, y + 2 * yStep);
+		ctx.lineTo(x + 6 * xStep, y + 3 * yStep);
+		ctx.lineTo(x + 4 * xStep, y + 3 * yStep);
+		ctx.lineTo(x + 2 * xStep, y + yStep);
+		ctx.closePath();
+		ctx.fillStyle = "red";
+		ctx.fill();
+		ctx.font="bold 20px Arial";
+		ctx.fillStyle = "black";
+		ctx.fillText("MITSUBISHI", x + 0.5 * xStep , y + size + 0.4 * yStep);
+		ctx.fillText("MOTORS", x + xStep , y + size + yStep);
+	}
+
+	drawMitsubishiLogo(getRandomInt(0,300),getRandomInt(0,300));
+</script>
+</html>
+

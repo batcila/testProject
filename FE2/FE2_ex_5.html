@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>HTML5 API &amp; Rounded Corners</title>
+		<style type="text/css">
+			.buttonbar {
+				background-color: grey;
+				width: 600px;
+				border: 3px grey;
+				color: white;
+			}
+			.buton {
+				margin: 5px;
+				border-radius: 10px 0 10px 0;
+			}
+			.mapholder {
+				background-color: lightgray;
+				width: 600px;
+				height: 400px;
+				border-radius: 0 0 15px 15px;
+				visibility: hidden;
+			}
+			.imgclass {
+				margin: 10px;
+			}
+		</style>
+		<script type="text/javascript">
+			var locx = "0";
+			var locy = "0"; 
+			function showMap() {
+				var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+locx+","+locy+"&zoom=14&size=580x380&sensor=false";
+				document.getElementById("mapimg").innerHTML = "<img id='imgId' class='imgclass' src='"+img_url+"' onload='divShow()' />";
+			}
+			function divShow() {
+				document.getElementById("mapholderid").style.visibility = "visible";
+
+			}
+			function getLoca() {
+			    if (navigator.geolocation) {
+			        navigator.geolocation.getCurrentPosition(showPosition, showError);
+			    } else {
+			        alert("Geolocation is not supported by this browser.");
+			    }
+			}
+			function showPosition(position) {
+				/* if(typeof position === 'string') { alert("something broke"); } else { */
+				locx = position.coords.latitude;
+				locy = position.coords.longitude; 
+			    showMap(); /* } */
+			}
+			function showError(error) {
+			     alert("Unable to retrieve your location due to error code " + error.code + ": " + error.message); 
+			}
+			function fakeLoca() {
+			    if (typeof(Storage) !== "undefined") {
+        			locx = "42.697694";
+        			locy = "23.321753";
+        			localStorage.locstorx = locx;
+            		localStorage.locstory = locy;
+            		alert("Fake Location Saved!");
+        			} 
+				}
+			function saveLoca() {
+			    if (typeof(Storage) !== "undefined") {
+        			localStorage.locstorx = locx;
+            		localStorage.locstory = locy;
+            		alert("Save with Success!");
+        			} 
+				}
+			function loadLoca() {
+				if (typeof(Storage) !== "undefined") {
+        			locx = localStorage.locstorx;
+            		locy = localStorage.locstory;
+            		alert("Loading position: " + locx + "," + locy);
+            		showMap();
+        			}
+				}
+		</script>
+	</head>
+
+	<body>
+		<p>Домашна върху HTML5 API &amp; Rounded Corners</p>
+		<div class="buttonbar">
+			&nbsp;Местоположение: 
+			<button id="getLoc" class="buton" onclick="getLoca()">Вземи</button>
+			<button id="saveLoc" class="buton" onclick="saveLoca()">Запази</button>
+			<button id="loadLoc" class="buton" onclick="loadLoca()">Зареди</button>
+			<button id="fakeLoc" class="buton" onclick="fakeLoca()">Зашис Фалшива локация</button>
+		</div>
+
+		<div id="mapholderid" class="mapholder">
+			<div id="mapimg">&nbsp;</div>
+		</div>
+		
+	</body>
+</html>

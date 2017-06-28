@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>FE2 Exersize 6</title>
+	<style>
+
+		img { /* select all img */
+			width: 100px;
+			height: 100px;
+			float: left;
+			padding: 10px;
+			border: 20px solid black;
+			border-image: url(https://www.w3schools.com/CSSref/border.png) 30 round;
+		}
+
+		div > p { 
+			display: block-inline;
+		}
+
+		span > p::first-line { /* select the first line of 'p' that is direct child of span */
+			color: blue;
+			font-size: 20px;
+		}
+
+		p:nth-child(3)::first-letter { /* selects the first letter from 3-rd child that is 'p' */
+			color: red;
+			font-size: 40px;
+		}
+
+		img:last-child { /* selects img that is last child of his parrent*/
+			border: 1px solid gray;
+			border-radius: 5px 10px 20px 30px; /* adds borders in clockorder */
+		}
+
+		p[class|="lorem"]::before { /* add content BEFORE 'p' with 'class' IS 'lorem' or start with 'lorem-' */
+			color: white;
+			background-color: blue;
+			content: "this is WORKING !!! for value|=string";
+		}
+
+		p[class^="lorem"]::after { /* add content AFTER 'p' with 'class' that start with 'lorem' */
+			color: white;
+			background-color: red;
+			content: "this is also WORKING !!! for value^=string";
+		}
+
+	</style>
+</head>
+<body>
+
+	<div> 
+		<img src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" alt="html5 logo" />
+		<p class="lorem-test">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis turpis ultricies, eleifend massa a, ullamcorper ligula.
+			Etiam pulvinar diam non metus porttitor faucibus. Nam ac sem eget ante fringilla dignissim.
+			Nulla magna est, vestibulum et varius a, porttitor a nulla. Curabitur ac massa vel nisl malesuada consequat. </p>
+
+		<p class="lorem test">
+			Pellentesque sit amet mi suscipit, suscipit libero sit amet, condimentum turpis. Vivamus ullamcorper finibus est at elementum.
+			facilisis sit amet vitae tortor. Sed vitae pharetra lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+			per inceptos himenaeos. </p>
+
+		<p class="lorem">
+			Vivamus convallis commodo dui sed cursus. Cras sed eros vitae erat efficitur convallis finibus sed risus. Fusce hendrerit rhoncus
+			Curabitur purus nisl, bibendum ut euismod in, accumsan sed leo.	Aenean velit libero, sagittis vitae quam non, 
+			vehicula fringilla mauris. Sed luctus mi non venenatis aliquet. Lorem ipsum dolor. Morbi fringilla volutpat faucibus. </p>
+	</div>
+
+	<span>
+		<p> Vivamus convallis commodo dui sed cursus. Cras sed eros vitae erat efficitur convallis finibus sed risus. Fusce hendrerit rhoncus
+			Curabitur purus nisl, bibendum ut euismod in, accumsan sed leo.	Aenean velit libero, sagittis vitae quam non, 
+			vehicula fringilla mauris. Sed luctus mi non venenatis aliquet. Lorem ipsum dolor. Morbi fringilla volutpat faucibus. </p>
+		<img src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" alt="html5 logo" />
+	</span>
+
+</body>
+</html>

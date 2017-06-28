@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>CSV exercise</title>
+</head>
+<body>
+	<details>
+		<summary>Green Star</summary>
+		<svg height="140" width="500">
+  			<ellipse cx="200" cy="80" rx="100" ry="50" style="fill:yellow;stroke:purple;stroke-width:2" />
+		</svg>
+	</details>
+	<details>
+		<summary>Elipse with text</summary>
+		<svg height="150" width="400">
+			<defs>
+				<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+					<stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+					<stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+				</linearGradient>
+			</defs>
+			<ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+  		<text fill="#ffffff" font-size="45" font-family="Verdana" x="150" y="86">SVG</text>
+		Sorry, your browser does not support inline SVG.
+		</svg>
+	</details>
+	<details id="blabla" open="open">
+		<summary>fun</summary>
+	</details>
+
+</body>
+<script>
+	var canvas = document.getElementById('myCanvas');
+	
+	function getRandomColorRGB() {
+    	// var letters = '0123456789ABCDEF';
+    	// var color = '#';
+    	// for (var i = 0; i < 6; i++ ) {
+    	// 	color += letters[Math.floor(Math.random() * 16)];
+    	// }    
+    	var red = getRandomNumber(0, 255);
+    	var green = getRandomNumber(0, 255);
+    	var blue = getRandomNumber(0, 255);
+    	var color = 'rgb(' + red + ',' + green + ',' + blue + ')'; 
+    	console.log(color);
+    	return color;
+	}
+
+	function getRandomNumber(min, max) {
+		return Math.floor(Math.random() * (max - min) + min);
+	}
+
+	function randomColorGardient(numberOfColors){
+		
+		var svgString = '<summary>something</summary><svg height="150" width="400"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">'; 
+		for (var i = 0; i <= numberOfColors; i++) {
+			svgString += '<stop offset="' + (i * ( 100 / numberOfColors ))+ '%" style="stop-color:' + getRandomColorRGB() + ';stop-opacity:1" />';
+		};
+		svgString += '</linearGradient></defs>';
+		svgString += '<ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" /><text fill="#ffffff" font-size="45" font-family="Verdana" x="150" y="86">SVG</text>Sorry, your browser does not support inline SVG.</svg>';
+		return svgString;
+	}
+
+	function circles(numberOfCircles, cirlcleRadius) {
+		var cirlcleCode = '<svg height="500" width="500">';
+		for (var i = cirlcleRadius ; i > 0; i -= cirlcleRadius / numberOfCircles) {
+			cirlcleCode += '<circle cx="250" cy="250" r="' + i + '" fill="' + getRandomColorRGB() + '" />';
+		};
+		cirlcleCode += '<text x="50" y="250" font-size="50" fill="' + getRandomColorRGB() + '">I love SVG!';
+		cirlcleCode += '<animate attributeName="x" attributeType="XML" begin="0s" dur="4s" from="500" to="-100" repeatCount="indefinite" />';
+		cirlcleCode += '<animate attributeName="fill" attributeType="CSS" from="' + getRandomColorRGB() + '" to="' + getRandomColorRGB() + '" begin="0s" dur="4s" repeatCount="indefinite" />';
+		cirlcleCode += '<animateTransform attributeName="transform" attributeType="XML" type="rotate" from="-100" to="100" begin="0s" dur="4s" repeatCount="indefinite" /> ';
+		cirlcleCode += '</text></svg>';
+		return cirlcleCode;
+	}
+
+
+
+
+	document.getElementById('blabla').innerHTML = circles(9, 400);
+
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+</head>
+<body>
+	<form method="post">
+		<fieldset>
+			<legend>Izbori 2034:</legend>
+				<div id="deputati" ></div>
+			<input type="button" value="Add New" onclick="addDep();"/>
+			<input type="Submit" value="Vote !!!" />
+		</fieldset>
+	</form>
+	<script>
+		var deputati = [
+			"Cecka",
+			"Mitko pishtowa",
+			"Generala",
+			"Boko",
+			"lelq Penka ot drugiq vhod"
+		];
+
+		var depDiv = document.getElementById('deputati');
+
+		function showDep() {
+				depDiv.innerHTML = '';
+			for (i = 0; i < deputati.length; i++) { 
+   				depDiv.innerHTML += '<label><input type="radio" name="mychoice" value="' + deputati[i] + '" />' + deputati[i] + '</label><br />';
+			}
+		}
+
+		function addDep() {
+			var newDepName = prompt('Enter Deputat Name');
+			if (newDepName != '' && newDepName != null) {
+				deputati.push(newDepName);
+				showDep();
+				console.log (newDepName);
+			} else {
+				alert('Ne klikaj ne be shmatkaaaa !!!');
+			}
+		}
+
+		showDep();
+
+	</script>
+</body>
+</html>

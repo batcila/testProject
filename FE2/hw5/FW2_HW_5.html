@@ -1,0 +1,116 @@
+<!DOCTYPE xhtml>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="FE2_HW_5.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="FE2_HW_5.js"></script>
+</head>
+<body>
+
+	<main> <!-- Контейнер заради по-естетична рамка -->
+
+			<div id="image_container"> <!-- Контейнер за снимките -->
+				<image class="pic_class" src="pic.jpg" width="300px" height="300px" />
+				<image class="needle_class" src="empty.png"  height="300px" width="300px" />
+			</div>
+
+			<table> <!-- Контролен панел -->
+				<tr>
+					<td colspan="3">Control Panel</td>
+				</tr>
+				<tr class="triple_td">
+					<td><input type="number" data-rounding="border-top-left-radius" value="50" min="0" max="50" /></td>
+					<td><button id="but_up" type="button">Горе</button></td>
+					<td><input type="number" data-rounding="border-top-right-radius" value="50" min="0" max="50" /></td>
+				</tr>
+				<tr class="triple_td">
+					<td><button id="but_left" type="button">Ляво</button></td>
+					<td><input type="number" data-rounding="border-radius" value="50" min="0" max="50" /></td>
+					<td><button id="but_right" type="button">Дясно</button></td>
+				</tr>
+				<tr class="triple_td">
+					<td><input type="number" data-rounding="border-bottom-left-radius" value="50" min="0" max="50" /></td>
+					<td><button id="but_down" type="button">Долу</button></td>
+					<td><input type="number" data-rounding="border-bottom-right-radius" value="50" min="0" max="50" /></td>
+				</tr>
+				<tr>
+					<td colspan="3">Borders Panel</td>
+				</tr>
+				<tr>
+					<td>Горна</td>
+					<td colspan="2">
+						<input type="number" data-borders="border-top-width" value="8" min="0" max="10" />
+						<select data-borders="border-top-style">
+							<option selected="selected" value="dotted">dotted</option>
+							<option value="dashed">dashed</option>
+							<option value="double">double</option>
+							<option value="ridge">ridge</option>
+							<option value="solid">solid</option>
+						</select>
+						<input type="color" data-borders="border-top-color" value="#0000FF" />
+					</td>
+				</tr>
+				<tr>
+					<td>Дясна</td>
+					<td colspan="2">
+						<input type="number" data-borders="border-right-width" value="8" min="0" max="10" />
+						<select data-borders="border-right-style">
+							<option value="dotted">dotted</option>
+							<option selected="selected" value="dashed">dashed</option>
+							<option value="double">double</option>
+							<option value="ridge">ridge</option>
+							<option value="solid">solid</option>
+						</select>
+						<input type="color" data-borders="border-right-color" value="#FF0000" />
+					</td>
+				</tr>
+				<tr>
+					<td>Долна</td>
+					<td colspan="2">
+						<input type="number" data-borders="border-bottom-width" value="8" min="0" max="10" />
+						<select data-borders="border-bottom-style">
+							<option value="dotted">dotted</option>
+							<option value="dashed">dashed</option>
+							<option selected="selected" value="double">double</option>
+							<option value="ridge">ridge</option>
+							<option value="solid">solid</option>
+						</select>
+						<input type="color" data-borders="border-bottom-color" value="#00FF00" />
+					</td>
+				</tr>
+				<tr>
+					<td>Лява</td>
+					<td colspan="2">
+						<input type="number" data-borders="border-left-width" value="8" min="0" max="10" />
+						<select data-borders="border-left-style">
+							<option value="dotted">dotted</option>
+							<option value="dashed">dashed</option>
+							<option value="double">double</option>
+							<option selected="selected" value="ridge">ridge</option>
+							<option value="solid">solid</option>
+						</select>
+						<input type="color" data-borders="border-left-color" value="#FF00FF" />
+					</td>
+				</tr>
+				<tr>
+					<td>Всички</td>
+					<td colspan="2">
+						<input type="number" data-borders="border-width" value="8" min="0" max="10" />
+						<select data-borders="border-style">
+							<option value="dotted">dotted</option>
+							<option value="dashed">dashed</option>
+							<option value="double">double</option>
+							<option value="ridge">ridge</option>
+							<option selected="selected" value="solid">solid</option>
+						</select>
+						<input type="color" data-borders="border-color" value="#00FFFF" />
+					</td>
+				</tr>
+		</table>
+
+	</main>
+
+</body>
+</html>

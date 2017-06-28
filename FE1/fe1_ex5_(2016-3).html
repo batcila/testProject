@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<meta charset="UTF=8" />
+		<title>Лекция 5</title>
+
+	</head>
+	<body>
+		<form action="http://enevsoft.net/echo.php" method="get" target="_blank">
+			<table width="300px" border="1px">
+				<tr>
+					<td>Марка</td>
+					<td>
+						<select name="car_brand" id="car_brand">
+							<option value="0">Избери опция</option>
+							<option value="1">Honda</option>
+							<option value="2">Ford</option>
+							<option value="3">Citroen</option>
+							<option value="4">Audi</option>
+							<option value="5">Mercedes</option>
+						</select>
+					</td>
+					<td rowspan="5">
+						<textarea rows="15" cols="50" name="car_description">описание на автомобила</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Модел</td>
+					<td>
+						<input name="car_model" list="car_model_list" value="A2"> 
+							<datalist id="car_model_list">
+								<option value="A1">Audi</option>
+								<option value="A2"></option>
+								<option value="A3"></option>
+								<option value="A4"></option>
+								<option value="A5"></option>
+								<option value="100">Mercedess</option>
+								<option value="200"></option>
+								<option value="300"></option>
+								<option value="400"></option>
+								<option value="500"></option>
+							</datalist>
+						</input>
+					</td>
+				</tr>
+				<tr>
+					<td>Държава</td>
+					<td>
+						<select name="car_country[]" multiple="multiple">
+							<optgroup label="Европейски">
+								<option disabled="disabled" value="1">Германия</option>
+								<option selected="selected" value="2">България</option>
+								<option value="3">Франция</option>
+							</optgroup>
+							<optgroup label="Други" disabled="disabled">
+								<option value="4">Мексико</option>
+								<option value="5">Япония</option>
+							</optgroup>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td>Цена</td>
+					<td>
+						<input name="car_price" min="10" max="9999" value="5000" type="range" id="car_price" />
+						<span id="textInput">N/a<span>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3">
+						<button type="submit">Изпрати</button>
+						<button type="reset">Reset</button>
+					</th>
+				</tr>
+			</table>
+		</form>
+	</body>
+		<script type="text/javascript">
+			function updateTextInput() {
+				document.getElementById('textInput').innerHTML = document.getElementById('car_price').value;
+        	}
+        	setInterval(updateTextInput, 300);
+		</script>
+</html>

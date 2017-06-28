@@ -1,0 +1,7 @@
+.mainWindow {
+	width: 400px;
+	height: 800px;
+	display: block;
+	margin: auto;
+	border: 1px solid black;
+}

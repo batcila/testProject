@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		nav {
+			text-align: center;
+		}
+
+		table, th, td {
+    		border: 1px solid black;
+		}
+
+		form {
+			border: 1px solid black;
+			width: 300px;
+		}
+
+		.leftAlign {
+			
+		}
+
+		.rightAlign {
+  			float: right;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<nav>
+		<a href="http://google.bg/">Google</a>
+		<a href="http://abv.bg/">Abv.bg</a>
+		<a href="http://gmail.com/">Gmail</a>
+		<a href="http://zamunda.net/">Zamunda.net</a>
+		<a href="http://facebook.com/" target="_blank">Facebook</a>
+	</nav>
+
+	<hr />
+
+	<img src="http://lorempixel.com/500/300/nature/"/>
+	
+	<hr />
+
+	<form methood="get" action="action_page.php">
+		Name: 
+		<input class="rightAlign" type="text" name="name" />
+		<br />
+		Password:
+		<input class="rightAlign" type="password" />
+		<br />
+		<button class="leftAlign" type="reset">Reset</button>
+		<button class="rightAlign" type="submit">Submit</button>
+	</form>
+
+	<hr />
+
+	<main>
+		<article>
+   			<h1>Google Chrome</h1>
+    		<p><mark>Google Chrome</mark> is a free, open-source web browser developed by Google,released in <time datetime="2008-01">2008</time>.</p>
+		</article>
+	</main>
+
+	<details>
+		<summary>Click here to show more...</summary>
+		<p>At the beggining in 2008 it is created for Microsoft Windows, and was later ported to Linux, macOS, iOS and Android. Google Chrome is also the main component of Chrome OS, where it serves a platform for running web apps.</p>
+	</details>
+
+	<hr />
+
+	<table id="tablica">
+		<tr>
+			<th>First name</th>
+			<th>Last name</th> 
+		</tr>
+	</table>
+
+</body>
+
+<script>
+	var names = [
+		['Vasil', 'Sarbinsky'],
+		['Joro', 'Toshev'],
+		['Tomi', 'Iliev'],
+		['Tomi', 'sadf']
+	];
+	
+	function addNamesToTable() {
+    	var tabID = document.getElementById('tablica');
+		
+		for (i = 0; i < names.length; i++) { 
+			var row = tabID.insertRow(i+1);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			cell1.innerHTML = names[i][0];
+			cell1.style.fontStyle = "italic";
+			cell2.innerHTML = names[i][1];
+			cell2.style.fontWeight = "bold";
+		}
+	}
+
+	addNamesToTable();
+</script>
+
+</html>

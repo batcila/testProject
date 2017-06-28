@@ -1,0 +1,88 @@
+
+<!-- saved from url=(0113)http://batcila.plcnet.org/fe1/%d0%a2%d0%b5%d1%81%d1%82%d0%be%d0%b2%20%d0%b8%d0%b7%d0%bf%d0%b8%d1%82/FE1_Exam.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./test1_files/FE1_exam.css">
+</head>
+
+<body>
+
+	<div class="main">
+		
+		<div class="menuClass centered">
+			<a href="http://batcila.plcnet.org/fe1/%d0%a2%d0%b5%d1%81%d1%82%d0%be%d0%b2%20%d0%b8%d0%b7%d0%bf%d0%b8%d1%82/FE1_Exam.html#" class="menuLink">Начало</a>
+			<a href="http://batcila.plcnet.org/fe1/%d0%a2%d0%b5%d1%81%d1%82%d0%be%d0%b2%20%d0%b8%d0%b7%d0%bf%d0%b8%d1%82/FE1_Exam.html#" class="menuLink">Галерия</a>
+			<a href="http://batcila.plcnet.org/fe1/%d0%a2%d0%b5%d1%81%d1%82%d0%be%d0%b2%20%d0%b8%d0%b7%d0%bf%d0%b8%d1%82/FE1_Exam.html#" class="menuLink">FAQ</a>
+			<a href="http://batcila.plcnet.org/fe1/%d0%a2%d0%b5%d1%81%d1%82%d0%be%d0%b2%20%d0%b8%d0%b7%d0%bf%d0%b8%d1%82/FE1_Exam.html#" class="menuLink">За Нас</a>
+			<a href="http://batcila.plcnet.org/fe1/%d0%a2%d0%b5%d1%81%d1%82%d0%be%d0%b2%20%d0%b8%d0%b7%d0%bf%d0%b8%d1%82/FE1_Exam.html#" class="menuLink">Край</a>
+		</div> <!-- End of .menuClass -->	
+		
+		<div class="greenDivClass">
+
+			<div class="quotesDivClass centered">
+
+				<div class="quoteBox">
+					<blockquote id="blockquoteID">Don't cry because it's over, smile because it happened.</blockquote>
+					<span id="spanID">Dr. Seuss</span>
+				</div>
+					
+				<button onclick="changeQ(&#39;prev&#39;)"> &lt;== Prev </button>
+				<button onclick="newQuote()"> Добави </button>
+				<button onclick="changeQ(&#39;next&#39;)"> Next == &gt; </button>
+
+			</div>
+			
+				<div class="centered"> <br> Размисли разни </div>
+			<br>
+			<div class="info centered">
+				<br><br>
+				Лична информация
+
+			</div>
+
+			<form action="http://enevsoft.net/echo.php" method="post" id="form-id"> 
+
+				<fieldset>
+					<legend>Лични данни</legend>
+					Три имена*:<input type="text" name="name" id="nameInputId" required="required" placeholder="Въведете трите си имена"> <br>
+					Пол: <input type="radio" name="sex" id="maleRadio" value="Male"> <label for="maleRadio"> Мъж </label>
+					<input type="radio" name="sex" id="noneRadio" value="none" checked="checked"> <label for="noneRadio"> Не казвам </label>
+					<input type="radio" name="sex" id="femaleRadio" value="Female"> <label for="femaleRadio"> Жена </label> <br>
+					Дата на раждане:<input type="date" name="years"> <br>
+					
+					Роден град: 
+					<select name="town" id="townID" onchange="addTown()">
+						<option value="Plovdiv">Майнатаун :) </option>
+						<option value="other">Друг Град</option>
+					</select> <br>
+					
+					Говорими езици: <label for="languageBG"> Български </label> <input type="checkbox" id="languageBG" name="languageBG"> 
+					<label for="languageEN"> Английски </label> <input type="checkbox" id="languageEN" name="languageEN"> 
+					<label for="languageHIN"> Хинди </label> <input type="checkbox" id="languageHIN" name="languageHIN"> <br>
+					Телефон за контакт <input type="number" name="phoneNumber"> <br>
+					<textarea name="textBox" rows="8" cols="50" placeholder="Моля, напишете ни нещо интересно! Нека да споделим мига. ;-) "></textarea>
+					<br>
+					<input type="submit" name="submit">
+					<input type="reset" class="floatRight" name="reset">
+
+				</fieldset>
+
+			</form>
+
+			<img src="./test1_files/Believe In Myself.jpg" alt="i Believe">
+
+		</div>
+
+
+		<div class="footerClass">
+			<a href="http://batcila.plcnet.org/fe1/%d0%a2%d0%b5%d1%81%d1%82%d0%be%d0%b2%20%d0%b8%d0%b7%d0%bf%d0%b8%d1%82/FE1_Exam.html" target="_blank">© Yordan Enev All ights reserved</a>
+			<a href="http://webacademy.bg/" class="floatRight">WebAcademy</a>
+		</div> <!-- End of .footerClass -->
+	
+	</div>
+
+	<script src="./test1_files/FE1_exam.js"></script>
+
+
+</body></html>

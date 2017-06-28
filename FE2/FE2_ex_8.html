@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exerscise 8</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		nav, main {
+			text-align: center;
+		}
+
+		nav a {
+			text-decoration: none;						
+		}
+		
+		main a {
+			display: none;
+		}
+
+		nav ul li a {
+			padding: 10px;
+		}
+
+		nav ul li {
+			display: inline-block;
+			border: 1px solid black;
+			border-radius: 4px;
+			background-color: lightblue;
+			padding: 10px 0;			
+		}
+
+		@media (min-width:640px) and (max-width: 1024px) {
+			ul li i {
+				display: none !important;
+			}
+
+		}
+
+		@media (max-width: 640px) {
+			nav ul li span {
+				display: none;
+			}
+
+			main a {
+				display:inline;
+			}
+
+			main img {
+				display: none;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="#"><i class="fa fa-home"></i><span>Home</span></a></li>
+			<li><a href="#"><i class="fa fa-user-circle"></i><span>User</span></a></li>
+			<li><a href="#"><i class="fa fa-info-circle"></i><span>Info</span></a></li>
+			<li><a href="#"><i class="fa fa-phone"></i><span>Phone</span></a></li>
+		</ul>
+	</nav>
+	<main>
+		<img src="https://cdn.kinsights.com/cache/2f/a0/2fa05bebbd843b9aa91e348a7e77d5c2.jpg" alt="">
+		<a href="https://cdn.kinsights.com/cache/2f/a0/2fa05bebbd843b9aa91e348a7e77d5c2.jpg">https://cdn.kinsights.com/cache/2f/a0/2fa05bebbd843b9aa91e348a7e77d5c2.jpg</a>
+	</main>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>FE1..Javascript exercise</title>
+	</head>
+		
+	<body>
+
+	<p>Array elements are accessed using their index number.</p>
+
+	<button onclick="myShiftItems()">Shift</button>
+	<button onclick="myAddItem()">Add</button>
+	<button onclick="mySearch()">Search</button>
+	<button onclick="dellItem()">Del</button>
+	
+
+	<p id="demo"></p>
+
+	<script>
+		
+		var fruits = ["Banana", "Orange", "Apple", "Mango"];
+		document.getElementById("demo").innerHTML = fruits;
+
+	function myShiftItems() {
+
+		do {
+			var firstKey = Math.floor(Math.random() * fruits.length);
+			var secondKey = Math.floor(Math.random() * fruits.length);
+		} while (firstKey == secondKey);
+
+		var temp = fruits[firstKey];
+		fruits[firstKey] = fruits[secondKey];
+		fruits[secondKey] = temp;
+
+		showMyArray(fruits,"demo");
+	}
+
+	function myAddItem() {
+		var newItem = prompt('Write Something','Please Write');
+		if (newItem != '' && newItem != null) {
+			fruits.push(newItem);
+		}
+		showMyArray(fruits,"demo");
+	}
+
+	function showMyArray(var_array, target_id) {
+		document.getElementById(target_id).innerHTML = var_array;
+	}
+
+	function mySearch(yourSearch) {
+		var lowerCaseFruits = arrayToLowerCase(fruits);
+		var possitionOf = lowerCaseFruits.indexOf(yourSearch.toLowerCase());
+		if (possitionOf == -1){
+			alert('item "' + yourSearch + '" not found');
+		} else {
+			alert('item "' + yourSearch + '" found on possition :' + possitionOf);
+		}
+		return possitionOf;
+	}
+
+	function arrayToLowerCase(var_array) {
+		var newArray = [];
+		for (var i=0; i< var_array.length; i++) {
+			newArray.push(var_array[i].toLowerCase());
+		}
+		return newArray;
+	}
+
+	function dellItem(){
+		var deletedItem = prompt('Search for','something');
+		var keyIndex = mySearch(deletedItem);
+		if (keyIndex != -1) {
+			var result = confirm('Are you shure ?');
+			if (result == true) {
+				fruits.splice(keyIndex,1);
+				showMyArray(fruits, 'demo');
+			}
+		}
+	}
+
+	</script>
+
+	</body>
+	</html>

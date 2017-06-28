@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Audio/Video testing...</title>
+	<style type="text/css">
+		.blackBorder {
+			border: 1px solid black;
+
+		}
+	</style>
+</head>
+<body>
+	<a name="up" href="#down">Go Down</a>
+	<details>
+		<summary>Youtube test Video</summary>
+		<iframe 
+			class="blackBorder" width="560" height="315"
+			src="https://www.youtube.com/embed/cnk3QdSgaW8?playlist=cAtbBolHtAw,1RSBw61W2jo"
+			frameborder="0" allowfullscreen>
+			Iframe is not supported in you'r browser
+		</iframe>
+	</details>
+	<details>
+		<summary>Figure tag example</summary>
+		<figure class="blackBorder">
+			<img src="http://lorempixel.com/400/200/" width="400" height="200" alt="Random image"/>
+			<figcaption>Random image</figcaption>
+		</figure>
+	</details>
+	<details>
+		<summary>Some random text for WBR tag test</summary>
+		<p>
+			Lorem Ipsum е елементарен примерен текст, използван в печа<wbr />
+			тарската и типо<wbr />графската индустрия. <wbr /> 
+			Lorem Ipsum е индустриален стандарт от около 1500 година, 
+			когато неизвестен печатар взема няколко печатарски букви 
+			и ги разбърква, за да напечата с тях книга с примерни шрифтове. 
+			<wbr /> Този начин не само е оцелял повече от 5 века, но е навлязъл 
+			и в публикуването на електронни издания като е запазен почти без промяна. 
+			<wbr /> Популяризиран е през 60те години на 20ти век със издаването на 
+			Letraset листи, съдържащи Lorem Ipsum пасажи, <wbr /> популярен е и в 
+			наши дни във софтуер за печатни издания като Aldus PageMaker, <wbr /> 
+			който включва различни версии на Lorem Ipsum.
+		</p>
+	</details>
+
+	<details open="open">
+		<summary>Progress Testing</summary>
+		<progress id="progressID" value="50" min="0" max="100"></progress>
+		Current value:<span id="valueSpan">50</span>
+		<input type="button" onclick="progres('add');" value="Add some progress"/>
+		<input type="button" onclick="progres('sub');" value="Remove some progress"/>
+	</details>
+
+	<a name="down" href="#up">Go UP</a>
+
+	<script type="text/javascript">
+		var idiot = 0;
+
+		function idiotOrNot() {
+			if (idiot == 3) {
+				alert('Stop Clicking IDIOT !!!');
+				idiot = 0;
+				return;
+			}
+		}
+
+		function progres(addSubValue) {
+
+			var progID = document.getElementById("progressID");
+			var spanID = document.getElementById("valueSpan");
+
+			if (addSubValue == "add") {
+				if (progID.value < 100) {
+					progID.value += 10;
+					spanID.innerHTML = progID.value;
+				} else { alert("Value too high"); idiot++; idiotOrNot();}
+			} else {
+				if (progID.value > 0) {
+					progID.value -= 10;
+					spanID.innerHTML = progID.value;
+				} else { alert("Value too low"); idiot++; idiotOrNot();}
+			}
+		// 	switch (true) {
+		// 		case (progID.value < 100 && addSubValue == 'add'):
+		// 			progID.value += 10;
+		// 	 		spanID.innerHTML = progID.value;
+		// 			break;
+
+		// 		case (progID.value > 0 && addSubValue == 'sub'):
+		// 			progID.value -= 10;
+		// 	 		spanID.innerHTML = progID.value;
+		// 			break;
+
+		// 		case (progID.value <100):
+		// 			alert('Value too low !');
+		// 			break;
+
+		// 		default:
+		// 			alert('Value too high !');
+		// 			break;
+		// 	}
+		}
+	</script>
+</body>
+</html>

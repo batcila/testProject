@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas exercise</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="300" height="300" style="border:1px solid red">
+		You'r browser does not work with HTML5 Canvas!
+	</canvas>
+
+	<details open="open">
+		<summary>Controls</summary>
+		<input type="button" value="Draw Line" onclick="lineTo()" />
+		<input type="button" value="Draw Rectange" onclick="recTo()" />
+		<input type="button" value="Draw Arc" onclick="arcTo()" />
+		<input type="button" value="Array Draw" onclick="arrayDraw()" />
+		<input type="button" value="Add Text" onclick="addText()" />
+		<input type="button" value="Clear" onclick="clearCanvas()" />
+		<input type="button" value="Rotate Text" onclick="rotateText()" />
+	</details>
+
+</body>
+<script>
+	var canvas = document.getElementById('myCanvas');
+	
+	function lineTo() {
+		var x1 = prompt('enter Start X',10);
+		var y1 = prompt('enter Start Y',10);
+		var x2 = prompt('enter End X',100);
+		var y2 = prompt('enter End Y',100);
+		var ctx = canvas.getContext('2d');
+		ctx.moveTo(x1,y1);
+		ctx.lineTo(x2,y2);
+		ctx.stroke();
+	}
+
+	function recTo() {
+		var x1 = prompt('enter Start X',10);
+		var y1 = prompt('enter Start Y',10);
+		var x2 = prompt('enter size X',150);
+		var y2 = prompt('enter size Y',100);
+		var ctx = canvas.getContext('2d');
+		ctx.rect(x1,y1,x2,y2);
+		ctx.stroke();
+	}
+
+	function arcTo() {
+		var x = prompt('enter Start X',50);
+		var y = prompt('enter Start Y',50);
+		var r = prompt('enter size X',40);
+		var arcFrom = prompt('enter Start angle',0);
+		var arcTo = prompt('enter Start angle (max 2xPi)',2*Math.PI);
+		var ctx = canvas.getContext('2d');
+		ctx.beginPath();
+		ctx.arc(x,y,r,arcFrom,arcTo);
+		ctx.stroke();
+	}
+
+	function drawSomething(x,y,xTo,yTo,col) {
+		var ctx = canvas.getContext('2d');
+		ctx.beginPath();
+		ctx.strokeStyle=col;
+		ctx.rect(x,y,xTo,yTo);
+		ctx.stroke();
+	}
+
+	function arrayDraw() {
+
+		var rectArray = [
+			[getRandomNumber(),getRandomNumber(),getRandomNumber()/2,getRandomNumber()/2, getRandomColor()],
+			[getRandomNumber(),getRandomNumber(),getRandomNumber()/2,getRandomNumber()/2, getRandomColor()],
+			[getRandomNumber(),getRandomNumber(),getRandomNumber()/2,getRandomNumber()/2, getRandomColor()],
+			[getRandomNumber(),getRandomNumber(),getRandomNumber()/2,getRandomNumber()/2, getRandomColor()],
+			[getRandomNumber(),getRandomNumber(),getRandomNumber()/2,getRandomNumber()/2, getRandomColor()],
+			[getRandomNumber(),getRandomNumber(),getRandomNumber()/2,getRandomNumber()/2, getRandomColor()],
+			[getRandomNumber(),getRandomNumber(),getRandomNumber()/2,getRandomNumber()/2, getRandomColor()],
+			[getRandomNumber(),getRandomNumber(),getRandomNumber()/2,getRandomNumber()/2, getRandomColor()]
+		];
+
+		for ( var i = 0; i < rectArray.length; i++) { 
+    		drawSomething(rectArray[i][0],rectArray[i][1],rectArray[i][2],rectArray[i][3],rectArray[i][4]);
+		}
+	}
+
+	function getRandomColor() {
+    	var letters = '0123456789ABCDEF';
+    	var color = '#';
+    	for (var i = 0; i < 6; i++ ) {
+    		color += letters[Math.floor(Math.random() * 16)];
+    	}    
+    	return color; 
+	}
+
+	function getRandomNumber() {
+		return Math.floor(Math.random() * 300);
+	}
+
+	function clearCanvas() {
+		var ctx = canvas.getContext('2d');
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+	}
+
+	function addText() {
+		var ctx = canvas.getContext('2d');
+		var grd=ctx.createLinearGradient(0,100,100,300);
+		grd.addColorStop(0.3,"red");
+		grd.addColorStop(0.5,"green");
+		grd.addColorStop(0.7,"blue");
+		ctx.fillStyle=grd;
+		ctx.font = "40px Arial";
+		ctx.fillText("WebAcademy",25,160);
+	}
+
+	function rotateText() {
+
+	}
+	
+</script>
+
+
+</html>

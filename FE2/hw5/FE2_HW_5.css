@@ -1,0 +1,61 @@
+main {
+	margin: auto;
+	width: 1000px;
+	border: 1px solid lightgray;
+	padding: 10px;
+}
+
+#image_container {
+	width: 600px;
+	height: 600px;
+	display: inline-block;
+	border: 1px solid lightgray;
+	position: relative;
+}
+
+.pic_class { 
+	position: absolute;
+	top: 150px;
+	left: 150px;
+	z-index: 5;
+	border-radius: 50%;
+	/* за да изглежда 'готино' по подразбиране */
+	border-top: 8px dotted #0000FF; 
+	border-right: 8px dashed #FF0000;
+	border-bottom: 8px double #00FF00;
+	border-left: 8px ridge #FF00FF;
+}
+
+.needle_class { /* втора снимка (над първата) */
+	position: absolute;
+	top: 150px;
+	left: 150px;
+	z-index: 10;
+}
+
+table {
+	border: 1px solid black;
+	float: right;
+}
+
+td {
+	border: 1px solid black;
+}
+
+td[colspan='3'] { /* надписи на контролния панел */
+	text-align: center;
+	font-weight: bold;
+}
+
+.triple_td td:nth-child(2) { /* средни клетки при 3 колони на ред */
+	width: 110px;
+	text-align: center;
+}
+
+.triple_td td:last-child { /* десните клетки при 3 колони на ред */
+	text-align: right;
+}
+
+input[type='number'] {
+	width: 60px;
+}

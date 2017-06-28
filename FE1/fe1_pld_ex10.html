@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.c0{
+			background-color: gray;
+			height: 20px !important;
+		}
+		.c1{
+			background-color: white;
+		}
+		.c2{
+			background-color: green;
+		}
+		.c3{
+			background-color: red;	
+		}
+		.chess_cell{
+			width:500px;
+			height:50px;
+		}
+
+		.chess_table{
+			border: 10px solid gray;
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<div id="flagDiv"></div>
+	<button onclick="checkConfirm()">Buton!</button>
+	<button onclick="showDate()">ShowDate!</button>
+	<p id="demo"></p>
+		<script>
+			function show_chess() {
+				// Step 1: getElementById...
+				var div_flag = document.getElementById('flagDiv');
+
+				// Step 2: create new variable and use it to create table :)
+				var tmp_table = '';
+
+				for(var row = 1; row <= 12; row++)
+				{
+					tmp_table += '<tr>';
+
+					tmp_table += '<td class="chess_cell c' + (row % 4) + '">&nbsp;</td>';
+					
+					tmp_table += '</tr>';
+				}
+
+				tmp_table = '<table class="chess_table">' + tmp_table + '</table>';
+
+				// Step 3: change innerHTML...
+				div_flag.innerHTML = tmp_table;
+			}
+
+			show_chess();
+
+			function checkConfirm() {
+ 			   var txt;
+ 			   var userConfirm = confirm("Press a button!");
+   					if (userConfirm == true) {
+      				  txt = "You pressed OK!";
+   					 } else {
+    				    txt = "You pressed Cancel!";
+  					  }
+   				 document.getElementById("demo").innerHTML = txt;
+			}
+
+			function showDate () {
+				var today = new Date();
+				
+				var yyyy = today.slice(12, 4);
+
+   				 var str = "Hello world!";
+   				 var res = str.slice(1, 5);
+
+				// Fri Nov 11 2016 20:58:36 GMT+0200 (EET)
+				
+				console.log(yyyy);
+			}
+		</script>
+</body>
+</html>

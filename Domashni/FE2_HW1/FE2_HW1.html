@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="bg_BG">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>FE2 Homework 1</title>
+	<link rel="stylesheet" href="FE2_HW1.css" />
+</head>
+
+<body>
+
+	<header class="mainHeader">
+		<nav>
+			<a href="http://webacademy.bg">
+				<img src="media/wa_logo.png" alt="WebAcademy logo" />
+			</a>
+			<a href="https://www.vbox7.com/">
+				<img src="media/Vbox7fff.png" alt="Vbox7 logo" />
+			</a>
+			<a href="https://google.bg">
+				<img src="media/GoogleHummingbird.jpg" alt="Google logo" />
+			</a>
+		</nav>
+	</header>
+
+	<section id="main">
+		<article>
+
+			<header>
+				<h1>Какво имаме да правим днес</h1>
+			</header>
+
+			<details>
+				<summary>Семантичен уеб и мултимедия</summary>
+				<ul>
+					<li>Използвайте HTML5 елементи за да създадете документ с такава структора</li>
+					<li><strong>Спазвайте правилата за писане на качествен и <span class="underLine">подреден</span> код!</strong></li>
+					<li>Eдиничните тагове също се затварят: <code>&lt;img src=&quot;&quot; alr=&quot;&quot; /&gt;</code></li>
+					<li>Таговете и рехните елементи се изписват в долен регистър (т.е. с малки букви)</li>
+					<li>Между отделните атрибути има 1 интервал разстояние, но между даден атрибут и неговата стойност и знака равно (&quot;=&quot;) НЯМА разстояние</li>
+					<li>Между аритметичните оператори в JavaScript трябва да имате разстояние.</li>
+				</ul>
+			</details>
+
+			<details>
+				<summary>Вмъкнете видео</summary>
+				<p>Вие избирате видеото, което да вмъкнете. Ако не намирате лесно, използвайте видеото от упражненията</p>
+				<video width="320" height="240" controls="controls">
+					<source src="media/mov_bbb.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</details>
+
+			<details>
+				<summary>Вмъкнете аудио</summary>
+				<p>Вие избирате аудиото, което да вмъкнете. Ако не намирате лесно, използвайте аудиото от упражненията</p>
+				<audio controls="controls">
+					<source src="media/horse.ogg" type="audio/ogg">
+					Your browser does not support the audio element.
+				</audio>
+			</details>
+
+			<details>
+				<summary>Вмъкване от <mark>YouTube</mark></summary>
+				<p>
+					<iframe width="420" height="320" src="https://www.youtube.com/embed/YyJjD5oTKwI" frameborder="0" allowfullscreen></iframe>
+				</p>
+			</details>
+			
+			Прогрес бар
+			<input type="button" value="-" onclick="progClick('sub')" />
+			<progress min="0" max="100" value="50" id="progBar">Browser do not support Progress tag.</progress>
+			<input type="button" value="+" onclick="progClick('add')" />
+
+		</article>
+	</section>
+
+	<aside>
+		<img class="leftImage" src="http://lorempixel.com/400/580" alt="lorem pixel image 400x680" />
+	</aside>
+
+	<footer>
+		&copy; Web Academy
+		<span>2016</span>
+	</footer>
+	
+</body>
+
+<script src="FE2_HW1.js"></script>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE xhtml>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>EX 9</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<style type="text/css">
+		form, #resultDiv {
+			background-color: lightblue;
+		}
+		#div1, #div2 {
+			border: 1px solid pink;
+		}
+	</style>
+</head>
+<body>
+	
+	<details>
+		<summary>Първо упражнение</summary>
+		<div id="firstDiv">Something inside</div>
+		<div id="secondDiv">Something else</div>
+		<div id="thirdDiv">Something ???</div>
+		<input type="button" id="btn1" value="text to first div" />
+		<input type="button" id="btn2" value="html to second div" />
+		<input type="button" id="btn3" value="change value on this button" />
+		<div id="divToGo" style="background-color:lightgreen">Div Body</div>
+		<input type="button" id="divbtn1" value="append" />
+		<input type="button" id="divbtn2" value="prepend" />
+		<input type="button" id="divbtn3" value="after" />
+		<input type="button" id="divbtn4" value="before" />
+		<input type="button" id="divbtn5" value="attr" />
+	</details>
+	<details>
+		<summary>Form stuff</summary>
+		<form id="formID">
+			<input type="text" id="firstName" />
+			<input type="text" id="lastName" />
+			<input type="number" id="examResult" />
+			<div id="resultDiv">Empty</div>
+		</form>
+	</details>
+	<details id="thirdPart">
+		<summary>Div coloring and stuff...</summary>
+		<div id="div1">This div will be changed</div>
+		<div id="div2">i am something other</div><br />
+		background-color:<input type="text" data-dann="background-color" /><br />
+		color:<input type="text" data-dann="color" /><br />
+		border-width:<input type="number" data-dann="border-width" /><br />
+		border-color:<input type="text" data-dann="border-color" />
+	</details>
+	<script>
+
+		$(document).ready(function(){
+			
+			$('#btn1').click(function(){
+				$('#firstDiv').text('New Value - primerno');
+			});
+			$('#btn2').click(function(){
+				$('#secondDiv').html('<h1>Head 1 o.O</h1>');
+			});
+			$('#btn3').click(function(){
+				$('#btn3').val('changed ! :}');
+			});
+			$('#divbtn1').click(function(){
+				$('#divToGo').append('<p style="background-color:green">append</p>');
+			});
+			$('#divbtn2').click(function(){
+				$('#divToGo').prepend('<p style="background-color:green">prepend</p>');
+			});
+			$('#divbtn3').click(function(){
+				$('#divToGo').before('<p style="background-color:green">before</p>');
+			});
+			$('#divbtn4').click(function(){
+				$('#divToGo').after('<p style="background-color:green">after</p>');
+			});
+			$('#divbtn5').click(function(){
+				$('#divToGo').attr('style','background-color:lightgray');
+			});
+
+			$('form>input').blur(function(){
+				if ($('#firstName').val() != '' && $('#lastName').val()!= '' && $('#examResult').val() != '' ) {
+					$('#resultDiv').text('My name is ' + $('#firstName').val() + ' ' + $('#lastName').val() + ' and my result is ' + $('#examResult').val() );
+				}
+			});
+
+			$('#thirdPart>input').blur(function(){
+				$('#div1').css( $(this).data('dann'), $(this).val() );
+			});
+
+		});
+	</script>
+</body>
+</html>

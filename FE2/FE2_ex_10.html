@@ -1,0 +1,79 @@
+<!DOCTYPE xhtml>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FE2 - EX10</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<style>
+
+		.normalBut {
+			background-color: gray;
+		}
+		.activeBut {
+			background-color: red;
+		}
+		td {
+			border: 1px solid silver;
+			width: 20px;
+			height: 20px;
+			background-color: white;
+		}
+		.black_td {
+			color:white;
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+
+	<button type="button" id="butNew" class="normalBut">New</button>
+	<button type="button" id="butClear" class="normalBut">clear</button>
+
+	<table id="tableID">
+	
+	</table>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			var click_count = 0;
+			$('button').click(function(){
+				$('button').removeClass('activeBut');
+				$(this).addClass('activeBut');
+			});
+			
+	
+			$('#butNew').click(function(){
+			var n = prompt('How many',4);
+				var table = document.getElementById("tableID");
+				for (var rows = 0; rows < n; rows++) {
+					var row = table.insertRow(rows);
+					for (var cols = 0; cols < n; cols++) {
+						var cell = row.insertCell(cols);
+						cell.innerHTML = ' ';
+					};
+				};
+			});
+	
+			$('#tableID').on('click', 'td', function(){
+				var symbol = (click_count % 2 == 0 ? 'x' : 'o');
+			
+				if ($(this).text() == '') {
+
+					$(this).text(symbol);
+					$(this).toggleClass('black_td')
+					click_count++;
+					
+				} else {
+
+					$(this).text('');
+				}
+				
+				//$(this).css('background-color', 'black');
+	
+			});
+		});
+	</script>
+
+</body>
+</html>

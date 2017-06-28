@@ -1,0 +1,80 @@
+<!DOCTYPE xhtml>
+<html lang="bg-BG">
+<head>
+	<meta charset="UTF-8" />
+	<title>FrontEnd 2 - Homework 4</title>
+	<link rel="stylesheet" type="text/css" href="FE2_HW4.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="mainDiv">
+
+		<nav>
+			<div id="mainNav">
+				<a href="#">Начало</a>
+				<a href="#">Галерия</a>
+				<a href="#">Награди</a>
+				<a href="#">Участници</a>
+				<a href="#">За контакти</a>
+				<button type="button" id="hideNav">&larr;</button>
+			</div>
+			<div id="secondNav">
+				<button type="button" id="showNav">&rarr;</button>
+			</div>
+		</nav>
+
+		<main>
+			<h1>Галерия</h1>
+			<img src="files/FE2_HW_4-1.png" alt="picture1" />
+			<img src="files/FE2_HW_4-2.jpg" alt="picture2" />
+			<br />
+			<div id="pagination">
+			</div>
+		</main>
+		
+		<aside> <!-- в условието е "Страничен <div>" -->
+			<form method="post" enctype="multipart/form-data" action="#">
+				<fieldset>
+    				<legend>Форма за участие в конкурса</legend>
+    				<table>
+    					<tr>
+    						<td>Първо име</td>
+    						<td><input type="text" name="firstName" placeholder="Въведи името си" /></td>
+    					</tr>
+    					<tr>
+    						<td>Фамилия</td>
+    						<td><input type="text" name="lastName" placeholder="Въведи фамилията си" /></td>
+    					</tr>
+						<tr>
+    						<td>Заглавие</td>
+    						<td><input type="text" name="picTitle" placeholder="Заглавие на снимката" /></td>
+    					</tr>
+						<tr>
+							<td>Конкурс</td>
+    						<td>
+								<select disabled="disabled" name="competition">
+    								<option value="spring">Първа пролет</option>
+								</select>
+    						</td>
+    					</tr>
+    					<tr>
+    						<td>
+								<img id="sendFile" src="files/FE2_HW_4-4.png" alt="imageButton" width="70px" height="70px" />
+    							<input type="file" id="myFile" style="display: none;"/>
+    						</td>
+    						<td>
+								* Kликнете на картинката в лявто за да прикачите файл
+    						</td>
+    					</tr>
+					</table>
+    				<button type="submit">Изпрати</button>
+    			</fieldset>
+			</form>
+		</aside>
+
+		<button type="button" class="readMoreButton">Read More</button>
+
+	</div> <!-- end of #mainDiv-->
+	<script src="FE2_HW4.js"></script>
+</body>
+</html>
